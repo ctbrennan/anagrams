@@ -1,6 +1,6 @@
 import sys
 word_dict = {} #mapping of sorted_words -> tuple of words
-
+# from itertools import permutations
 
 def process(filename):
 	"""
@@ -35,6 +35,18 @@ def add_word_to_dict(sorted_word, word):
 		word_list.append(word)
 		word_list = sorted(word_list)
 		word_dict[sorted_word] = tuple(word_list)
+	# perms = [''.join(p) for p in permutations(word)]
+	# for perm in perms:
+	# 	if perm not in word_dict:
+	# 		word_dict[perm] = tuple([word])
+	# 	else:
+	# 		word_tup = word_dict[perm]
+	# 		word_list = list(word_tup)
+	# 		word_list.append(word)
+	# 		word_list = sorted(word_list)
+	# 		word_dict[perm] = tuple(word_list)
+
+
 
 
 def online():
@@ -63,4 +75,5 @@ def online():
 if __name__ == "__main__":
 	filename = sys.argv[1]
 	process(filename)
+	# print(word_dict)
 	online()
